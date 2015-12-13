@@ -70,9 +70,9 @@ var ViewPager = React.createClass({
       }
 
       this.props.hasTouch && this.props.hasTouch(false);
-      if(step!=0){
-        this.movePage(step);
-      }
+      
+      this.movePage(step);
+      
 
       
     }
