@@ -63,15 +63,18 @@ var ViewPager = React.createClass({
           vx = gestureState.vx;
 
       var step = 0;
-      if (relativeGestureDistance < -0.5 || (relativeGestureDistance < 0 && vx <= 0.5)) {
+      if (relativeGestureDistance < -0.5) {
         step = 1;
-      } else if (relativeGestureDistance > 0.5 || (relativeGestureDistance > 0 && vx >= 0.5)) {
+      } else if (relativeGestureDistance > 0.5 ) {
         step = -1;
       }
 
       this.props.hasTouch && this.props.hasTouch(false);
+      if(step!=0){
+        this.movePage(step);
+      }
 
-      this.movePage(step);
+      
     }
 
     this._panResponder = PanResponder.create({
